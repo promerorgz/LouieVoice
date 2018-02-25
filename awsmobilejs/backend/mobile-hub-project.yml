@@ -1,0 +1,59 @@
+--- !com.amazonaws.mobilehub.v0.Project 
+apps:
+  react-native: !com.amazonaws.mobilehub.v0.AppDO {}
+features:
+  bots: !com.amazonaws.mobilehub.v0.Bots 
+    components:
+      Louie: !com.amazonaws.mobilehub.v0.Bot 
+        attributes:
+          childDirected: true
+          description: ''
+          existing: true
+          template: bot-import
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
+    components:
+      LouieAPI: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          disable-aws-auth: true
+          name: LouieAPI
+          requires-signin: false
+          sdk-generation-stage-name: Development
+        paths:
+          /GreeterFunction: !com.amazonaws.mobilehub.v0.Function {}
+          /greeter: !com.amazonaws.mobilehub.v0.Function 
+            description: 'Handler for calls to resource path : /greeter/{proxy+}'
+            environment: {}
+            handler: index.handler
+            hashcode: HcnkEdtprArtVvsyEIpazYvngiV23yxuKxj3/NBpnV4=
+            memorySize: '128'
+            modified: '2018-02-18T22:40:57.130+0000'
+            name: greeterHandler
+            runtime: nodejs6.10
+            timeout: '3'
+            version: x6k5puTcMZ11Uo0SEQl4PYWiNLL.8Ntq
+            codeFilename: uploads/greeterHandler-20180218164902.zip
+          '/greeter/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            description: 'Handler for calls to resource path : /greeter/{proxy+}'
+            environment: {}
+            handler: index.handler
+            hashcode: HcnkEdtprArtVvsyEIpazYvngiV23yxuKxj3/NBpnV4=
+            memorySize: '128'
+            modified: '2018-02-18T22:40:57.130+0000'
+            name: greeterHandler
+            runtime: nodejs6.10
+            timeout: '3'
+            version: 2Y0kAWKUVU1os3AHcyQ7rVYCTRqp1PiM
+            codeFilename: uploads/greeterHandler-20180218164902.zip
+          /voiceEnabled: !com.amazonaws.mobilehub.v0.Function {}
+  content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
+    attributes:
+      enabled: true
+      visibility: public-global
+    components:
+      release: !com.amazonaws.mobilehub.v0.Bucket {}
+  mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
+    components:
+      analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
+  sign-in: !com.amazonaws.mobilehub.v0.SignIn {}
+name: Louie
+region: us-east-1

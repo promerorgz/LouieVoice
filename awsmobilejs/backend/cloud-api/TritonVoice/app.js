@@ -25,7 +25,7 @@ app.use(function(req, res, next) {
 AWS.config.update({ region: process.env.REGION })
 
 /**********************
- * Example get method *
+ GET
  **********************/
 
 app.get('/louie', function(req, res) {
@@ -39,7 +39,7 @@ app.get('/louie/*', function(req, res) {
 });
 
 /****************************
-* Example post method *
+POST
 ****************************/
 
 app.post('/louie', function(req, res) {
@@ -53,7 +53,7 @@ app.post('/louie/*', function(req, res) {
 });
 
 /****************************
-* Example post method *
+PUT
 ****************************/
 
 app.put('/louie', function(req, res) {
@@ -67,7 +67,7 @@ app.put('/louie/*', function(req, res) {
 });
 
 /****************************
-* Example delete method *
+DELETE
 ****************************/
 
 app.delete('/louie', function(req, res) {
@@ -84,7 +84,4 @@ app.listen(3000, function() {
     console.log("App started")
 });
 
-// Export the app object. When executing the application local this does nothing. However,
-// to port it to AWS Lambda we will create a wrapper around that will load the app from
-// this file
 module.exports = app
